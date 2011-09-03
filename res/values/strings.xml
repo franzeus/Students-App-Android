@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="hello">Hello World, Main!</string>
+    <string name="app_name">StudentsApp</string>
+    <string-array name="menu_array">
+        <item>Fächer</item>
+        <item>Noten</item>
+        <item>Stundenplan</item>
+        <item>Aufgaben</item>
+        <item>Fehltage</item>
+    </string-array>
+    
+    <string name="subjectButtonText">Fächer</string>
+    <string name="gradeButtonText">Noten</string>
+    <string name="scheduleButtonText">Stundenplan</string>
+    <string name="todoButtonText">Aufgaben</string>
+    <string name="dayoffButtonText">Fehltage</string>
+    <string name="settingButtonText">Einstellungen</string>
+    <string name="termButtonText">Schuljahre</string>
+ 
+    <string name="menu_insert">Neu</string>
+    <string name="menu_edit">Ändern</string>
+    <string name="menu_remove">Löschen</string>
+    <string name="menu_help">Hilfe</string>
+    <string name="menu_back">Menu</string>
+    <string name="menu_info">Info</string>
+    <string name="menu_cancel">Abbrechen</string>
+   
+   <string name="title_subject">Deine Fächer</string>
+   <string name="title_term">Deine Schuljahre</string>
+   <string name="title_grade">Deine Noten</string>
+   <string name="title_schedule">Dein Stundenplan</string>
+   <string name="title_todo">Deine Aufgaben </string>
+   <string name="title_dayoff">Deine Fehltage</string>
+   
+    <string name="no_notes">No Items Yet</string>
+    <string name="menu_delete">Delete Grade</string>
+    <string name="formHeadSubject">Name</string>
+    <string name="formHeadGrade">Note</string>
+    <string name="formHeadGradeType">Typ</string>
+    <string name="formHeadWeight">Noten-Gewicht</string>
+    <string name="formHeadTask">Aufgabe</string>
+    <string name="formHeadStatus">Status</string>
+    <string name="confirm">Speichern</string>
+    <string name="edit_note">Note</string>
+    <string name="grades">Noten</string>
+
+    <string name="active_prompt">Aktiviert</string>
+    <string name="grades_prompt">Note</string>
+    <string name="subject_prompt">Wähle das Fach</string>
+    <string name="grades_type_prompt">Typ</string>
+    <string name="grade_weight_prompt">Noten Gewicht</string>
+    <string name="task_checked_prompt">Status:</string>
+    
+    <string name="grades_no_entry">Bisher wurden keine Noten eingetragen !</string>
+    <string name="menu_newItem">Neu</string>
+
+	<string name="average">Durchschnitt</string>
+	<string name="formHeadCaption">Bezeichnung</string>
+	
+	<!-- Messages  -->
+	<string name="msgSaved">Gespeichert !</string>
+	<string name="missingName">Der Name fehlt !</string>
+	<string name="missingReason">Du musst einen Grund eingeben !</string>
+	<string name="noSubjects">Du musst zuerst ein Fach eintragen !</string>
+</resources>

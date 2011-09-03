@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:orientation="vertical" android:layout_width="fill_parent"
+	android:layout_height="fill_parent"
+	android:padding="10dp">	
+
+	<TextView
+		android:text="@string/formHeadTask" 
+		style="@style/formHead"/>
+	<EditText android:id="@+id/title" 
+	  	android:layout_width="fill_parent"
+		android:layout_height="wrap_content"
+	/>
+	
+	<TextView
+		android:text="@string/formHeadStatus"
+		style="@style/formHead"/>
+	<Spinner 
+       	android:id="@+id/task_checked_spinner"
+       	android:layout_width="fill_parent"
+       	android:layout_height="wrap_content"
+       	android:prompt="@string/task_checked_prompt"
+       	android:entries="@array/task_checked_string"
+       	android:entryValues="@array/task_checked_int"
+    	/>
+
+	<TextView
+		android:id="@+id/dateDisplay"
+        style="@style/formHead"
+        android:text="" />
+    <Button android:id="@+id/pickDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Datum"/>
+
+	<Button android:id="@+id/confirm"
+	    android:text="@string/confirm"
+		style="@style/formSaveButton" />
+
+</LinearLayout>

@@ -1,0 +1,67 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML Basic 1.1//EN" "http://www.w3.org/TR/xhtml-basic/xhtml-basic11.dtd">
+<html>
+<head>
+    <title>Subject</title>    
+    <meta name="viewport" content="width=device-width, user-scalable=no" />
+    <link rel="stylesheet" href="css.css" type="text/css" />
+</head>
+<body>
+<h1 id="siteTitle"></h1>
+
+<form name="formi">
+	<input type="hidden" id="formID" />
+	<input type="hidden" id="isDir" />
+
+	<label>Name:</label>
+	<input type="text" size="20" name="formTitle" id="formTitle" />
+
+	<p><input type="button" size="20" id="formConfirm" value=" Speichern " onClick="saveData()"/></p>
+</form>
+
+<script type="text/javascript">
+	var siteTitle 	= document.getElementById('siteTitle');
+	var formID 		= document.getElementById('formID');
+	var isDir 		= document.getElementById('isDir');
+	var formTitle	= document.getElementById('formTitle');
+	
+	getData();
+	// ---------------
+	function getData() {
+		
+			// Fetch values if there are any
+			formID.value = Android.getID();
+			isDir.value = Android.getIsDir();			
+			
+			// Check if isEdit
+			if(formID.value != "undefined") {
+				formTitle.value = Android.getTitle();
+
+				// Distinguish between Subject or TodoDir
+				if(isDir.value == "0") {
+					siteTitle.innerHTML = "Ordner editieren";
+				} else {
+					siteTitle.innerHTML = "Fach editieren";
+				}
+
+			// Create new
+			} else {
+				formID.value = "";
+				formTitle.value = "";
+
+				// Subject or TodoDir
+				if(isDir.value == "0") {
+					siteTitle.innerHTML = "Neues Fach";
+				} else {
+					siteTitle.innerHTML = "Neuer Ordner";
+				}
+			}
+	}
+
+	// ---------------
+ 	function saveData() {
+        Android.saveData(formTitle.value, formID.value, isDir.value);
+    }
+</script>
+
+</body>
+</html>

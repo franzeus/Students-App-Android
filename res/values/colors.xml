@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+		<color name="white">#ffffffff</color>
+        <color name="black">#ff000000</color>
+        <color name="darkgrey">#ff333333</color>
+        
+        <color name="one">#ffB5DF9F</color>
+        <color name="two">#ffC7E461</color>
+        <color name="three">#ffFFCC66</color>
+        <color name="four">#ffDDB388</color>
+        <color name="five">#ffDB5635</color>
+        <color name="six">#ff97341C</color>
+        <color name="def">#ff97341C</color>
+        
+        <color name="inactive">#ffcccccc</color>
+</resources>

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <!-- Base application theme is the default theme. -->
+  <style name="SAPTheme" parent="android:Theme.Light">
+  	<item name="android:background">#F6F6F6</item>
+  	<item name="android:textColor">#333333</item>
+  </style>
+  
+  <style name="mainView">
+    <item name="android:layout_width">fill_parent</item>
+  	<item name="android:layout_height">fill_parent</item>
+  </style>
+
+  <style name="siteTitle">
+    <item name="android:layout_width">fill_parent</item>
+  	<item name="android:layout_height">wrap_content</item>
+  	<item name="android:padding">8dp</item>
+  	<item name="android:textSize">18dp</item>
+  	<item name="android:layout_marginBottom">20dp</item>
+  	<item name="android:gravity">left|center</item>
+  </style>
+  
+  <style name="formHead">
+    <item name="android:layout_width">fill_parent</item>
+  	<item name="android:layout_height">wrap_content</item>
+  	<item name="android:textSize">15dp</item>
+  	<item name="android:layout_marginTop">10dp</item>
+  	<item name="android:gravity">left|center</item>
+  </style>
+  
+  <style name="formSaveButton">
+    <item name="android:layout_width">wrap_content</item>
+  	<item name="android:layout_height">wrap_content</item>
+  	<item name="android:layout_marginTop">20dp</item>
+  	<item name="android:gravity">center|center</item>
+  	<item name="android:drawableLeft">@drawable/disk</item>
+  </style>
+
+  <style name="menuButton">
+    <item name="android:padding">8dp</item>
+  	<item name="android:background">#F6F6F6</item>
+  	<item name="android:textSize">18dp</item>
+  	<item name="android:layout_height">wrap_content</item> 
+  	<item name="android:layout_width">fill_parent</item>
+  	<item name="android:layout_marginBottom">1dp</item>
+  	<item name="android:gravity">left|center</item>
+  	<item name="android:textColor">@color/button_style</item>
+  </style>
+</resources>

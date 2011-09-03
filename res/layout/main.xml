@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+	style="@style/mainView"
+	>
+<ScrollView 
+android:id="@+id/scrllvwNo1" 
+android:layout_width="fill_parent" 
+android:layout_height="wrap_content">
+<LinearLayout
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+	android:background="#FFFFFF"
+	android:orientation="vertical"
+	>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="75dp"
+	android:background="#F6F6F6"
+	android:orientation="horizontal"
+	android:layout_gravity="center_horizontal"
+	>
+	 <ImageView
+	        android:id="@+id/logo"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:gravity="center_horizontal"
+	        android:src="@drawable/logo"
+	        android:paddingTop="25dp"
+	        android:paddingLeft="40dp" />        
+</LinearLayout>
+
+
+<Button android:id="@+id/termButton" 
+		android:drawableRight="@drawable/subject"
+		android:text="@string/termButtonText" 
+		style="@style/menuButton"
+		android:onClick="showTerms"/>	
+		
+<Button android:id="@+id/subjectButton"
+		android:drawableRight="@drawable/folder"
+		android:text="@string/subjectButtonText"
+		style="@style/menuButton"
+		android:onClick="showSubject"></Button>
+		
+<Button android:id="@+id/gradeButton" 
+		android:drawableRight="@drawable/grade"
+		android:text="@string/gradeButtonText"
+		style="@style/menuButton"
+		android:onClick="showGrades"/>
+		
+<Button android:id="@+id/scheduleButton" 
+		android:drawableRight="@drawable/schedule"
+		android:text="@string/scheduleButtonText" 
+		style="@style/menuButton"
+		android:onClick="showSchedule"/>
+
+<Button android:id="@+id/todoButton" 
+		android:drawableRight="@drawable/list"
+		android:text="@string/todoButtonText"
+		style="@style/menuButton" 
+		android:onClick="showTodo"/>
+		
+<Button android:id="@+id/dayoffButton" 
+		android:drawableRight="@drawable/dayoff"
+		android:text="@string/dayoffButtonText"
+		style="@style/menuButton"
+		android:onClick="showDayoff"/>
+
+</LinearLayout></ScrollView>
+</LinearLayout>
+

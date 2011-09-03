@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+      package="com.mmt.sap"
+      android:versionCode="1"
+      android:versionName="1.0">
+
+    <uses-sdk android:minSdkVersion="7" />
+    <application android:icon="@drawable/icon" android:label="@string/app_name" android:theme="@style/SAPTheme" android:debuggable="true" android:hasCode="true">
+        <activity android:name=".Main"
+        		  android:theme="@android:style/Theme.NoTitleBar"
+                  android:label="@string/app_name">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".TermActivity" />
+        <activity android:name=".TermCU" />
+        <activity android:name=".GradesActivity"></activity>
+        <activity android:name=".GradeEdit" />
+        <activity android:name=".GradeCU" />
+        <activity android:name=".SubjectActivity"></activity>
+        <activity android:name=".SubjectEdit" />
+        <activity android:name=".SubjectCU" />
+        <activity android:name=".SubjectDetail" />
+        <activity android:name=".Schedule" />
+        <activity android:name=".ScheduleDetail" />
+        <activity android:name=".ScheduleCU" />
+        <activity android:name=".TodoActivity" />
+        <activity android:name=".TodoDetail" />
+        <activity android:name=".TodoEdit" />
+        <activity android:name=".TaskEdit" />
+        <activity android:name=".TaskCU" />
+        <activity android:name=".DayoffActivity" />
+        <activity android:name=".DayoffCU" />
+        <activity android:name=".HtmlView" />
+    </application>
+    <uses-permission android:name="android.permission.INTERNET" />
+</manifest>

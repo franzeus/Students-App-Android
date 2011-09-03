@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:orientation="vertical" android:layout_width="fill_parent"
+	android:layout_height="fill_parent"
+	android:padding="10dp">	
+
+	<TextView
+		android:text="@string/formHeadCaption" 
+		style="@style/formHead"/>
+	<EditText android:id="@+id/title" 
+	  	android:layout_width="fill_parent"
+		android:layout_height="wrap_content"
+	/>
+
+	<TextView
+		android:id="@+id/activeText"
+        style="@style/formHead"
+        android:text="Aktiv" />
+	<Spinner 
+       	android:id="@+id/active_spinner"
+       	android:layout_width="fill_parent"
+       	android:layout_height="wrap_content"
+       	android:prompt="@string/active_prompt"
+       	android:entries="@array/isactive_string"
+       	android:entryValues="@array/isactive_int"
+    	/>
+
+	<Button android:id="@+id/confirm"
+	    android:text="@string/confirm"
+		style="@style/formSaveButton" />
+
+</LinearLayout>

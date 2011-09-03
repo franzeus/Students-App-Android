@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+	<string-array name="grade_16_string">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+	</string-array>
+  	<array name="grade_16_int">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+	</array>
+		
+	<string-array name="grade_type_string">
+        <item>Klausur</item>
+        <item>Mündlich</item>
+        <item>Test</item>
+        <item>Referat</item>
+        <item>Mitarbeit</item>
+	</string-array>
+  	<array name="grade_type_int">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+	</array>
+	
+	<string-array name="grade_weight_string">
+        <item>1-fach</item>
+        <item>2-fach</item>        
+	</string-array>
+  	<array name="grade_weight_int">
+        <item>1</item>
+        <item>2</item>
+	</array>
+	
+	<string-array name="task_checked_string">
+        <item>Offen</item>
+        <item>Abgehackt</item>        
+	</string-array>
+  	<array name="task_checked_int">
+        <item>0</item>
+        <item>1</item>
+	</array>
+	
+	<string-array name="isactive_string">
+        <item>Inaktiv</item>
+        <item>Aktiv</item>
+	</string-array>
+  	<array name="isactive_int">
+        <item>0</item>
+        <item>1</item>
+	</array>
+	
+    <string-array name="schedule_array">
+        <item>Montag</item>
+        <item>Dienstag</item>
+        <item>Mittwoch</item>
+        <item>Donnerstag</item>
+        <item>Freitag</item>        
+    </string-array>
+</resources>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+	
+    <title>Noten</title>    
+    <meta name="viewport" content="width=device-width, user-scalable=no" />
+    <link rel="stylesheet" href="css.css" type="text/css" />
+    <link rel="stylesheet" href="jquerymobile.css" type="text/css" />
+    <script type="text/javascript" src="jquery144.js"></script>
+    <script type="text/javascript" src="jquerymobilemin.js"></script>
+</head>
+<body>
+
+<div data-role="page"> 
+<div data-role="header" data-nobackbtn="true" data-position="inline"><h1 id="siteTitle"></h1></div>
+<div data-role="content">
+	<input type="text" id="formID" />
+
+	<label for="subjectID">Fach:</label>
+	<select id="subjectID" name="subjectID">
+	</select>
+
+
+	<label for="grade">Note:</label>
+	<select id="grade" name="grade">
+		<option value="1">1</option>
+		<option value="2">2</option>
+		<option value="3">3</option>
+		<option value="4">4</option>
+		<option value="5">5</option>
+		<option value="6">6</option>
+	</select>
+
+	<label for="weight">Noten-Gewicht:</label>
+	<select id="weight" name="weight">
+		<option value="1">1-fach</option>
+		<option value="2">2-fach</option>
+	</select>
+
+	<label for="date">Datum:</label>
+	<input type="text" value="2011-1-10" id="date" name="date">
+
+	<div data-role="fieldcontain">
+	<label for="type">Typ:</label>
+	<select id="type" name="type">
+		<option value="Klausur">Klausur</option>
+		<option value="Muendlich">Muendlich</option>
+		<option value="Referat">Referat</option>
+		<option value="Test">Test</option>
+		<option value="Abfrage">Abfrage</option>
+	</select>
+	</div>
+
+	<p><input type="button" size="20" id="formConfirm" value=" Speichern " onClick="saveData()"/></p>
+</div>
+</div>
+
+<script type="text/javascript">	
+	var siteTitle 	= document.getElementById('siteTitle');
+	var formID 		= document.getElementById('formID');
+	var formGrade	= document.getElementById('grade');
+	var formSubject	= document.getElementById('subjectID');
+	var formWeight	= document.getElementById('weight');
+	var formType	= document.getElementById('type');
+	var formDate	= document.getElementById('date');
+
+	$("#grade").append('<option value="default" selected="selected">Default<option>');
+
+</script>
+</body>
+</html>
