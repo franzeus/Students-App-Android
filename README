@@ -1,0 +1,17 @@
+### Current-State: still in development ###
+
+### Description ###
+
+This is an Android application for students, based on the web app www.schueler-manager.de
+
+Students can:
++ Manage terms
++ Add subjects
++ Add grades
++ Edit schedule
++ Add todos
++ Add "missing dates"
+
+First release will only be interesting for german students - but a localized version is in work for version 2.0 :)
+
+
