@@ -36,6 +36,8 @@ public class ScheduleCU extends Activity {
         setContentView(R.layout.schedule_edit);
         setTitle(R.string.title_schedule);
         
+        scheduleAdapter = new ScheduleDbAdapter(this);
+        
         // ----------------
         // Build Form
         // -- Subject Spinner
@@ -86,21 +88,20 @@ public class ScheduleCU extends Activity {
 		Log.i("ScheduleCU"," dayId: " + dayId + " rowID: " + mRowId);
         confirmButton.setOnClickListener(new View.OnClickListener() {
         	public void onClick(View view) {
-        		saveState();
-                setResult(RESULT_OK);	// When an activity exits, it can call setResult(int) to return data back to its parent
-                finish();
+        		saveState();               
         	}
         });
     }
 
+    /*
     @Override
     protected void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
-        saveState();
-        outState.putSerializable("rowId", mRowId);
-        outState.putSerializable("dayId", dayId);
+       // saveState();
+       // outState.putSerializable("rowId", mRowId);
+       // outState.putSerializable("dayId", dayId);
     }
-
+	*/
     @Override
     protected void onPause() {
         super.onPause();
@@ -127,10 +128,11 @@ public class ScheduleCU extends Activity {
     	// Get SubjectID 
         long subject_id = selectedSubjectId;
         Log.i("SaveSchedule"," SID:" + subject_id + " dayId: " + dayId + " rowID: " + mRowId);
-        	
-    	scheduleAdapter.create(subject_id, dayId, mRowId);
-    	/*if (id > 0) {
-    		mRowId = id
-        }*/
+        
+        if(scheduleAdapter != null)
+        	scheduleAdapter.create(subject_id, dayId, mRowId);
+    	
+    	setResult(RESULT_OK);	// When an activity exits, it can call setResult(int) to return data back to its parent
+        finish();
     }
 }

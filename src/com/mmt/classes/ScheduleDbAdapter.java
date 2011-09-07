@@ -28,7 +28,7 @@ public class ScheduleDbAdapter extends DbAdapter {
 	    // CREATE
 	    public void create(long subjectId, long dayId, long posId) {
 	    	int termId = getActiveTerm();
-	    	
+
 	    	if(isPlaceEmpty(dayId, posId, termId)) {
 	    		delete(dayId, posId, termId);
 	    	}
@@ -66,8 +66,12 @@ public class ScheduleDbAdapter extends DbAdapter {
 	    							new String[] {KEY_PLACEID, KEY_DAY, KEY_TERMID}, 
 	    							KEY_PLACEID + "=" + rowId + " AND " + KEY_DAY + "=" + dayId + " AND " + KEY_TERMID + "=" + termId, 
 	    							null, null, null, null, null);
-	    	boolean isEmpty = mCursor.getCount() > 0 ? true : false;
-	    	return isEmpty;	    	
+	    	if (mCursor != null) {
+	    		return true;
+	    	}
+	    	return false;
+	    	//boolean isEmpty = mCursor.getCount() > 0 ? true : false;	    	
+	    	//return isEmpty;	    	
 	    }
 	
 	    // Get Active Term
