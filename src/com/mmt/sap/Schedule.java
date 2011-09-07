@@ -1,5 +1,4 @@
 package com.mmt.sap;
-
 import android.app.ListActivity;
 import android.content.Context;
 import android.content.Intent;
@@ -47,7 +46,7 @@ public class Schedule extends ListActivity {
 	        	        
 	        fillData();
 	        //registerForContextMenu(getListView());
-	        setContentBasedOnLayout();
+	        //setContentBasedOnLayout();
 	    }
 	    
 	    // ---------------------------------------------------------

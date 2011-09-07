@@ -28,7 +28,7 @@
         android:layout_toRightOf="@+id/titleImg"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:gravity="bottom"
-        android:text="Deine Noten" />
+        />
         
     <ImageView
         android:id="@id/titleImg"
