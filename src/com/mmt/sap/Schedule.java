@@ -1,6 +1,7 @@
 package com.mmt.sap;
 
 import android.app.ListActivity;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -8,15 +9,13 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
-import android.widget.AdapterView.OnItemClickListener;
-
-import com.mmt.classes.ScheduleDbAdapter;
 
 public class Schedule extends ListActivity {
 	
@@ -48,6 +47,7 @@ public class Schedule extends ListActivity {
 	        	        
 	        fillData();
 	        //registerForContextMenu(getListView());
+	        setContentBasedOnLayout();
 	    }
 	    
 	    // ---------------------------------------------------------
@@ -107,4 +107,25 @@ public class Schedule extends ListActivity {
 	        super.onActivityResult(requestCode, resultCode, intent);
 	        fillData();
 	    }   
+	    
+	    private void setContentBasedOnLayout()
+	    {
+	        WindowManager winMan = (WindowManager) getBaseContext().getSystemService(Context.WINDOW_SERVICE);
+	        
+	        if (winMan != null)
+	        {
+	            int orientation = winMan.getDefaultDisplay().getOrientation();
+	            
+	            if (orientation == 0) {
+	                // Portrait
+	                setContentView(R.layout.activity);
+	                Log.i("View", "Portrait");
+	            }
+	            else if (orientation == 1) {
+	                // Landscape
+	                setContentView(R.layout.activity);
+	                Log.i("View", "Landscape");
+	            }            
+	        }
+	    }
 }

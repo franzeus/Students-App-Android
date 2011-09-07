@@ -1,16 +1,17 @@
 package com.mmt.classes;
 
 import android.content.Context;
+import android.content.Intent;
 import android.database.Cursor;
-import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.Menu;
 import android.view.View;
-import android.view.ViewGroup;
 import android.view.View.OnClickListener;
+import android.view.ViewGroup;
+import android.widget.CheckBox;
+import android.widget.ImageView;
 import android.widget.SimpleCursorAdapter;
 import android.widget.TextView;
-import android.widget.CheckBox;
-import android.widget.Toast;
 
 import com.mmt.sap.R;
 
@@ -37,20 +38,24 @@ public class TaskListAdapter extends SimpleCursorAdapter {
     	int isChecked = cur.getInt(cur.getColumnIndex(TodoDbAdapter.KEY_ISCHECKED));
     	
     	TextView titleText = (TextView)view.findViewById(R.id.text1);
-    	CheckBox checkbox = (CheckBox) view.findViewById(R.id.list_checkbox);
+    	ImageView checkImage = (ImageView)view.findViewById(R.id.checkImg);
+    	checkImage.setBackgroundResource(R.drawable.checknot);
+    	//CheckBox checkbox = (CheckBox) view.findViewById(R.id.list_checkbox);
     	// TODO: try to get this refactored!
     	
+    	/*
     	checkbox.setOnClickListener(new OnClickListener() {
     	    public void onClick(View v) {
     	        int status = ((CheckBox) v).isChecked() ? 1 : 0 ;
     	    	   	        
             	TodoDbAdapter.checkTodo(theId, status);
     	    }
-    	});
+    	}); */
     	
     	if(isChecked == 1) {    		
-    		checkbox.setChecked(true);
+    		//checkbox.setChecked(true);
+    		checkImage.setBackgroundResource(R.drawable.check);
     	}
         titleText.setText(todoTitle);
-    }
+    }    
 }

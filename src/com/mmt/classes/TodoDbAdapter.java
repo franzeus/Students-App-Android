@@ -14,14 +14,6 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
-import android.util.Log;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.SimpleCursorAdapter;
-import android.widget.TextView;
-
-import com.mmt.sap.R;
 
 public class TodoDbAdapter {
 
@@ -93,10 +85,10 @@ public class TodoDbAdapter {
       
     // -------------------------------------------------------
     // Fetch certain
-    public Cursor fetchSingle(long rowId) throws SQLException {
+    public static Cursor fetchSingle(long rowId) throws SQLException {
 
         Cursor mCursor = mDb.query(true, DATABASE_TABLE, new String[] {KEY_ROWID,
-                    KEY_TITLE, KEY_TERMID, KEY_DIRID, KEY_DEADLINE}, KEY_ROWID + "=" + rowId, null,
+                    KEY_TITLE, KEY_TERMID, KEY_DIRID, KEY_DEADLINE, KEY_ISCHECKED}, KEY_ROWID + "=" + rowId, null,
                     null, null, null, null);
         if (mCursor != null) {
             mCursor.moveToFirst();
@@ -115,10 +107,17 @@ public class TodoDbAdapter {
     }
     
     // Update
-    public static void checkTodo(long rowId, int check) {
+    public static void checkTodo(long rowId) {
         ContentValues args = new ContentValues();
+        
+        Cursor cursor = fetchSingle(rowId);
+        final int isChecked = cursor.getInt(cursor.getColumnIndex(KEY_ISCHECKED));
+        int check = isChecked == 1 ? 0 : 1;
+        
         args.put(KEY_ISCHECKED, check);
         mDb.update(DATABASE_TABLE, args, KEY_ROWID + "=" + rowId, null);
+        
+        cursor.close();
     }   
     
     // Get Active Term

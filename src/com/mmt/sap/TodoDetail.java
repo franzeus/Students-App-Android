@@ -2,26 +2,20 @@ package com.mmt.sap;
 
 import android.app.AlertDialog;
 import android.app.ListActivity;
-import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.ContextMenu;
-import android.view.LayoutInflater;
+import android.view.ContextMenu.ContextMenuInfo;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewGroup;
-import android.view.ContextMenu.ContextMenuInfo;
-import android.view.View.OnClickListener;
-import android.widget.CheckBox;
-import android.widget.ListView;
-import android.widget.SimpleCursorAdapter;
-import android.widget.TextView;
-import android.widget.Toast;
 import android.widget.AdapterView.AdapterContextMenuInfo;
+import android.widget.ListView;
+import android.widget.TextView;
 
 import com.mmt.classes.SubjectDbAdapter;
 import com.mmt.classes.TaskListAdapter;
@@ -94,16 +88,21 @@ public class TodoDetail extends ListActivity {
         TaskListAdapter mListAdapter = new  TaskListAdapter(this, cursor, from, to);
         setListAdapter(mListAdapter);
         
-        txtAverage.setText("Aufgaben: " + cursor.getCount());
+        txtAverage.setText("Aufgaben: " + cursor.getCount());        
     }
     
     // ---------------------------------------------------------
     @Override
     protected void onListItemClick(ListView l, View v, int position, long id) {
         super.onListItemClick(l, v, position, id);
-        Intent i = new Intent(this, TodoEdit.class);
-        i.putExtra(TodoDbAdapter.KEY_ROWID, id);
-        startActivityForResult(i, ACTIVITY_EDIT);
+        
+        /*
+        Cursor cur = todoAdapter.fetchSingle(id);
+        startManagingCursor(cur);
+        int isChecked = cur.getInt(cur.getColumnIndex(TodoDbAdapter.KEY_ISCHECKED));
+        */
+    	TodoDbAdapter.checkTodo(id);
+    	fillData();    	
     }
         
 	// ---------------------------------------------------------
