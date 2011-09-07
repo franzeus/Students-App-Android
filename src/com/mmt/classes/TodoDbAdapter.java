@@ -120,6 +120,11 @@ public class TodoDbAdapter {
         cursor.close();
     }   
     
+    // Remove all checked tasks
+    public static void removeCheckedTasks(long dirId) {        
+        mDb.delete(DATABASE_TABLE, KEY_DIRID + "=" + dirId + " AND " + KEY_ISCHECKED + "= 1", null);
+    }
+    
     // Get Active Term
     private int getActiveTerm() {
     	TermHelper termHelper = new TermHelper(this.mCtx);

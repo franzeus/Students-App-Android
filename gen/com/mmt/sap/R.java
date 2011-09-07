@@ -90,6 +90,7 @@ public final class R {
         public static final int list2=0x7f0a0024;
         public static final int logo=0x7f0a0014;
         public static final int menu_back=0x7f0a002e;
+        public static final int menu_clear=0x7f0a0031;
         public static final int menu_edit=0x7f0a002f;
         public static final int menu_help=0x7f0a002d;
         public static final int menu_info=0x7f0a002b;
@@ -148,7 +149,7 @@ public final class R {
         public static final int main_menu=0x7f090000;
         public static final int menu=0x7f090001;
         public static final int menu_detail=0x7f090002;
-        public static final int remove_menu=0x7f090003;
+        public static final int menu_todo_detail=0x7f090003;
     }
     public static final class raw {
         public static final int ajaxloader=0x7f040000;
@@ -176,55 +177,56 @@ public final class R {
         public static final int todo_help=0x7f040016;
     }
     public static final class string {
-        public static final int active_prompt=0x7f070021;
+        public static final int active_prompt=0x7f070022;
         public static final int app_name=0x7f070001;
-        public static final int average=0x7f070029;
-        public static final int confirm=0x7f07001e;
+        public static final int average=0x7f07002a;
+        public static final int confirm=0x7f07001f;
         public static final int dayoffButtonText=0x7f070006;
-        public static final int edit_note=0x7f07001f;
-        public static final int formHeadCaption=0x7f07002a;
-        public static final int formHeadGrade=0x7f070019;
-        public static final int formHeadGradeType=0x7f07001a;
-        public static final int formHeadStatus=0x7f07001d;
-        public static final int formHeadSubject=0x7f070018;
-        public static final int formHeadTask=0x7f07001c;
-        public static final int formHeadWeight=0x7f07001b;
+        public static final int edit_note=0x7f070020;
+        public static final int formHeadCaption=0x7f07002b;
+        public static final int formHeadGrade=0x7f07001a;
+        public static final int formHeadGradeType=0x7f07001b;
+        public static final int formHeadStatus=0x7f07001e;
+        public static final int formHeadSubject=0x7f070019;
+        public static final int formHeadTask=0x7f07001d;
+        public static final int formHeadWeight=0x7f07001c;
         public static final int gradeButtonText=0x7f070003;
-        public static final int grade_weight_prompt=0x7f070025;
-        public static final int grades=0x7f070020;
-        public static final int grades_no_entry=0x7f070027;
-        public static final int grades_prompt=0x7f070022;
-        public static final int grades_type_prompt=0x7f070024;
+        public static final int grade_weight_prompt=0x7f070026;
+        public static final int grades=0x7f070021;
+        public static final int grades_no_entry=0x7f070028;
+        public static final int grades_prompt=0x7f070023;
+        public static final int grades_type_prompt=0x7f070025;
         public static final int hello=0x7f070000;
         public static final int menu_back=0x7f07000d;
         public static final int menu_cancel=0x7f07000f;
-        public static final int menu_delete=0x7f070017;
+        public static final int menu_delete=0x7f070018;
         public static final int menu_edit=0x7f07000a;
         public static final int menu_help=0x7f07000c;
         public static final int menu_info=0x7f07000e;
         public static final int menu_insert=0x7f070009;
-        public static final int menu_newItem=0x7f070028;
+        public static final int menu_newItem=0x7f070029;
         public static final int menu_remove=0x7f07000b;
-        public static final int missingName=0x7f07002c;
-        public static final int missingReason=0x7f07002d;
+        public static final int menu_remove_all=0x7f070010;
+        public static final int missingName=0x7f07002d;
+        public static final int missingReason=0x7f07002e;
         /**  Messages  
  Messages  
          */
-        public static final int msgSaved=0x7f07002b;
-        public static final int noSubjects=0x7f07002e;
-        public static final int no_notes=0x7f070016;
+        public static final int msgSaved=0x7f07002c;
+        public static final int noSubjects=0x7f07002f;
+        public static final int no_notes=0x7f070017;
         public static final int scheduleButtonText=0x7f070004;
         public static final int settingButtonText=0x7f070007;
         public static final int subjectButtonText=0x7f070002;
-        public static final int subject_prompt=0x7f070023;
-        public static final int task_checked_prompt=0x7f070026;
+        public static final int subject_prompt=0x7f070024;
+        public static final int task_checked_prompt=0x7f070027;
         public static final int termButtonText=0x7f070008;
-        public static final int title_dayoff=0x7f070015;
-        public static final int title_grade=0x7f070012;
-        public static final int title_schedule=0x7f070013;
-        public static final int title_subject=0x7f070010;
-        public static final int title_term=0x7f070011;
-        public static final int title_todo=0x7f070014;
+        public static final int title_dayoff=0x7f070016;
+        public static final int title_grade=0x7f070013;
+        public static final int title_schedule=0x7f070014;
+        public static final int title_subject=0x7f070011;
+        public static final int title_term=0x7f070012;
+        public static final int title_todo=0x7f070015;
         public static final int todoButtonText=0x7f070005;
     }
     public static final class style {

@@ -36,6 +36,7 @@ public class TodoDetail extends ListActivity {
 	
 	private TodoDbAdapter todoAdapter;
 	private SubjectDbAdapter subjectAdapter;
+	private TaskListAdapter mListAdapter;
 	
 	// ---------------------------------------------------
     @Override
@@ -85,7 +86,7 @@ public class TodoDetail extends ListActivity {
         // and an array of the fields we want to bind those fields to
         int[] to = new int[]{R.id.text1};
         
-        TaskListAdapter mListAdapter = new  TaskListAdapter(this, cursor, from, to);
+        mListAdapter = new  TaskListAdapter(this, cursor, from, to);
         setListAdapter(mListAdapter);
         
         txtAverage.setText("Aufgaben: " + cursor.getCount());        
@@ -96,12 +97,8 @@ public class TodoDetail extends ListActivity {
     protected void onListItemClick(ListView l, View v, int position, long id) {
         super.onListItemClick(l, v, position, id);
         
-        /*
-        Cursor cur = todoAdapter.fetchSingle(id);
-        startManagingCursor(cur);
-        int isChecked = cur.getInt(cur.getColumnIndex(TodoDbAdapter.KEY_ISCHECKED));
-        */
     	TodoDbAdapter.checkTodo(id);
+    	//mListAdapter.notifyDataSetChanged();
     	fillData();    	
     }
         
@@ -109,7 +106,7 @@ public class TodoDetail extends ListActivity {
 	@Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.menu_detail, menu);
+        inflater.inflate(R.menu.menu_todo_detail, menu);
         return true;
     }
 
@@ -129,6 +126,9 @@ public class TodoDetail extends ListActivity {
             return true;
         case R.id.menu_remove:
         	deleteDir();
+            return true;
+        case R.id.menu_clear:
+        	clearDir();
             return true;
         default:
             return super.onOptionsItemSelected(item);
@@ -155,6 +155,11 @@ public class TodoDetail extends ListActivity {
         .setNegativeButton("Nein", null)
         .show();   	
    }
+    
+    private void clearDir() {
+    	todoAdapter.removeCheckedTasks(dirId);
+    	fillData();
+    }
 
     @Override
     public void onCreateContextMenu(ContextMenu menu, View v, ContextMenuInfo menuInfo) {

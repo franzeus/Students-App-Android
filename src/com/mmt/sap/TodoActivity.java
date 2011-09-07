@@ -112,8 +112,7 @@ public class TodoActivity extends ListActivity {
 	        startManagingCursor(notesCursor);
 	        
 	        // Get Average-Grade of term
-	        infoText.setText("Ordner: " + notesCursor.getCount());
-	        
+	        infoText.setText("Ordner: " + notesCursor.getCount());	        
 	        
 	        // Create an array to specify the fields we want to display in the list
 	        String[] from = new String[]{SubjectDbAdapter.KEY_TITLE};
