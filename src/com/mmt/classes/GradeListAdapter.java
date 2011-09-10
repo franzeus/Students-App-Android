@@ -1,5 +1,9 @@
 package com.mmt.classes;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 import android.content.Context;
 import android.database.Cursor;
 import android.view.LayoutInflater;
@@ -43,10 +47,29 @@ public class GradeListAdapter extends SimpleCursorAdapter {
         GradeHelper gradeHelper = new GradeHelper();
         int gradeColor = gradeHelper.getGradeColor(grade.toString());
         
+        Helper helper = new Helper();
+        
         gradeText.setBackgroundResource(gradeColor);
         gradeText.setText(grade);
-        dateText.setText(date);
+        dateText.setText(helper.formatDate((String) date));
         typeText.setText(type);
         subjectText.setText(subject);
     }
+    
+    /*
+    private String formatDate(String dateStr) {    	 
+    	SimpleDateFormat curFormater = new SimpleDateFormat("yyyy-MM-dd"); 
+    	Date dateObj = null;
+		try {
+			dateObj = curFormater.parse(dateStr);
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} 
+    	SimpleDateFormat postFormater = new SimpleDateFormat("dd.MM.yyyy"); 
+    	 
+    	String newDateStr = postFormater.format(dateObj);
+    	return newDateStr;
+    	
+    } */
 }

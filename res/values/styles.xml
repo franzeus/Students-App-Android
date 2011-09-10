@@ -10,6 +10,10 @@
     <item name="android:layout_width">fill_parent</item>
   	<item name="android:layout_height">fill_parent</item>
   </style>
+  
+   <style name="dialogStyle" parent="@android:style/Theme.Dialog">        
+        <item name="android:textColor">#333333</item>
+    </style>
 
   <style name="siteTitle">
     <item name="android:layout_width">fill_parent</item>

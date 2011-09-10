@@ -100,6 +100,7 @@ public class TodoDetail extends ListActivity {
     	TodoDbAdapter.checkTodo(id);
     	//mListAdapter.notifyDataSetChanged();
     	fillData();    	
+    	//openOptionsMenu();
     }
         
 	// ---------------------------------------------------------

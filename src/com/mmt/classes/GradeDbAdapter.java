@@ -52,7 +52,6 @@ public class GradeDbAdapter extends DbAdapter {
     // -------------------------------------------------------
     // Delete grade by ID
     public boolean deleteNote(long rowId) {
-    	Log.i("DeleteNote"," ID: " + rowId);
         return mDb.delete(DATABASE_TABLE, KEY_ROWID + "=" + rowId, null) > 0;
     }
 
@@ -93,7 +92,6 @@ public class GradeDbAdapter extends DbAdapter {
     // -------------------------------------------------------
     // Fetch certain grade
     public Cursor fetchNote(long rowId) throws SQLException {
-    	Log.i("fetchNote", "RowId:" + rowId);
         Cursor mCursor = mDb.query(true, DATABASE_TABLE + " LEFT JOIN sap_subjects ON sap_grades.subject_id = sap_subjects._id",
         			new String[] {  "sap_grades." + KEY_ROWID,
         							"sap_grades." + KEY_GRADE,

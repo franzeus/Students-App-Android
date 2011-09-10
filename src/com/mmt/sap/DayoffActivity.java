@@ -26,6 +26,7 @@ import android.widget.AdapterView.AdapterContextMenuInfo;
 
 import com.mmt.classes.DayoffDbAdapter;
 import com.mmt.classes.GradeDbAdapter;
+import com.mmt.classes.Helper;
 import com.mmt.classes.TermDbAdapter;
 
 public class DayoffActivity extends ListActivity {
@@ -100,9 +101,9 @@ public class DayoffActivity extends ListActivity {
 	        	}
 	        	
 				long dateDifference = dayoffAdapter.getDateDifference(dateFrom.toString(), dateTo.toString());
-	            
+				Helper helper = new Helper();
 				reasonText.setText(reason);
-	            dateText.setText(dateFrom + " - " + dateTo + " (" + dateDifference + ")");
+	            dateText.setText(helper.formatDate((String) dateFrom) + " - " + helper.formatDate((String) dateTo) + " (" + dateDifference + ")");
 	        }
 	    }
 	    

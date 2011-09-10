@@ -135,7 +135,6 @@ public class TermCU extends Activity {
     	    } else {
     	    	// inactive can only be set if term.count higher than one 
     	    	if(termAdapter.countTerms() == 1 && isActive == 0) {
-    	    		Toast.makeText(this, "Schuljahr gespeichert - aber aktiv", Toast.LENGTH_SHORT).show();
     	    		isActive = 1;
     	    	}
     	    	termAdapter.update(mRowId, title, isActive);
