@@ -257,9 +257,6 @@ public class GradeEdit extends Activity {
         
         // Get SubjectID 
         long subject_id = selectedSubjectId;
-
-        Log.i("onSAVE", "SubjectID " + subject_id + " Type: " + typeArrVal);        
-        Log.i("onSAVE", "Date: " + date + " Weight: " + weightArrVal);
             
         // Insert into Database
 	    if (mRowId == null) {

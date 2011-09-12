@@ -70,10 +70,8 @@ public class ScheduleCU extends Activity {
                         }
                     });
         subAdapter.close();
-        Button confirmButton = (Button) findViewById(R.id.confirm);
         
-        // ----------------
-       
+        // ----------------       
         mRowId = (savedInstanceState == null) ? null : (Integer) savedInstanceState.getSerializable("rowId");
 		if (mRowId == null) {
 			Bundle extras = getIntent().getExtras();
@@ -85,23 +83,27 @@ public class ScheduleCU extends Activity {
 				Bundle extras = getIntent().getExtras();
 				dayId = extras != null ? extras.getLong("dayId") : null;
 		}
+		
 		Log.i("ScheduleCU"," dayId: " + dayId + " rowID: " + mRowId);
+		Button confirmButton = (Button) findViewById(R.id.confirm);
         confirmButton.setOnClickListener(new View.OnClickListener() {
         	public void onClick(View view) {
-        		saveState();               
+        		saveState();
+            	setResult(RESULT_OK);
+                finish();
         	}
         });
     }
 
-    /*
+    
     @Override
     protected void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
-       // saveState();
-       // outState.putSerializable("rowId", mRowId);
-       // outState.putSerializable("dayId", dayId);
+        saveState();
+        outState.putSerializable("row_id", mRowId);
+        outState.putSerializable("day_id", dayId);
     }
-	*/
+    /**/
     @Override
     protected void onPause() {
         super.onPause();
@@ -120,6 +122,10 @@ public class ScheduleCU extends Activity {
         if (scheduleAdapter != null) {
         	scheduleAdapter.close();
         }
+        
+        if (subAdapter != null) {
+        	subAdapter.close();
+        }
     }
     
     // ---------------------------------------------------
@@ -128,11 +134,8 @@ public class ScheduleCU extends Activity {
     	// Get SubjectID 
         long subject_id = selectedSubjectId;
         Log.i("SaveSchedule"," SID:" + subject_id + " dayId: " + dayId + " rowID: " + mRowId);
-        
+
         if(scheduleAdapter != null)
         	scheduleAdapter.create(subject_id, dayId, mRowId);
-    	
-    	setResult(RESULT_OK);	// When an activity exits, it can call setResult(int) to return data back to its parent
-        finish();
     }
 }

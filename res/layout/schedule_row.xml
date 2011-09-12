@@ -3,17 +3,19 @@
 		android:orientation="horizontal"
 		android:layout_width="fill_parent"
 		android:layout_height="wrap_content"
-		android:minHeight="40dp"
+		android:minHeight="50dp"
 		android:layout_marginTop="10dp"		
 		>
 <TextView android:id="@+id/stage"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:layout_marginRight="30dp"
-    android:minWidth="20dp"/>
+    android:minWidth="20dp"
+    android:textSize="18dp"/>
 
 <TextView android:id="@+id/row_subject"
     android:layout_width="wrap_content"
-    android:layout_height="wrap_content"   
+    android:layout_height="wrap_content"  
+    android:layout_marginLeft="30dp" 
 />  
 </LinearLayout>

@@ -67,7 +67,7 @@ public class Schedule extends ListActivity {
 	    // ---------------------------------------------------------
 	    private void gotoHelp() {
 	    	Intent i = new Intent(this, HtmlView.class);
-	        i.putExtra("htmlSite", R.raw.todo_help);
+	        i.putExtra("htmlSite", R.raw.schedule_help);
 	        startActivity (i);	
 		}
 	    

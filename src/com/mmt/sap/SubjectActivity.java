@@ -140,6 +140,7 @@ public class SubjectActivity extends ListActivity {
 		super.onCreateContextMenu(menu, v, menuInfo);
 		menu.add(0, DELETE_ID, 0, R.string.menu_remove);
 		menu.add(0, EDIT_ID, 1, R.string.menu_edit);
+		menu.add(0, CANCEL_ID, 2, R.string.menu_cancel);
 	}
 	
 	@Override

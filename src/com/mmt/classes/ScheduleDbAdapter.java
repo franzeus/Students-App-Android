@@ -29,21 +29,21 @@ public class ScheduleDbAdapter extends DbAdapter {
 	    public void create(long subjectId, long dayId, long posId) {
 	    	int termId = getActiveTerm();
 
-	    	/*
-	    	if(isPlaceEmpty(dayId, posId, termId)) {
+	    	if(!isPlaceEmpty(dayId, posId, termId)) {
 	    		delete(dayId, posId, termId);
 	    	}
-	    	*/
 
 	        ContentValues initialValues = new ContentValues();
 	        initialValues.put(KEY_SUBJECTID, subjectId);
 	        initialValues.put(KEY_PLACEID, posId);
 	        initialValues.put(KEY_DAY, dayId);
-	        initialValues.put(KEY_TERMID, termId); 
-	        if(mDb != null)
+	        initialValues.put(KEY_TERMID, termId);
+	        
+	        if(mDb.isOpen())
 	        	mDb.insert(DATABASE_TABLE, null, initialValues);
 	        else
-	        	Log.i("Joo","not saved");
+	        	Log.i("Joo","not open");
+
 	    }
 
 	    // DELETE where dayID = ? and placeId = ? and term_id = ?
@@ -66,6 +66,11 @@ public class ScheduleDbAdapter extends DbAdapter {
 	    }
 	    	    
 	    private boolean isPlaceEmpty(long dayId, long rowId, int termId) {
+	    	if(mDb == null) {
+	    		Log.i("isPlace", "mDb is null!");
+	    		//return true;
+	    	}
+	    	
 	    	Cursor mCursor = mDb.query(true, DATABASE_TABLE, 
 	    							new String[] {KEY_PLACEID, KEY_DAY, KEY_TERMID}, 
 	    							KEY_PLACEID + "=" + rowId + " AND " + KEY_DAY + "=" + dayId + " AND " + KEY_TERMID + "=" + termId, 
@@ -73,9 +78,7 @@ public class ScheduleDbAdapter extends DbAdapter {
 	    	if (mCursor == null) {
 	    		return true;
 	    	}
-	    	return false;
-	    	//boolean isEmpty = mCursor.getCount() > 0 ? true : false;	    	
-	    	//return isEmpty;	    	
+	    	return false;    	
 	    }
 	
 	    // Get Active Term

@@ -25,13 +25,10 @@ import com.mmt.classes.GradeListAdapter;
 import com.mmt.classes.GradeDbAdapter;
 import com.mmt.classes.SubjectDbAdapter;
 import com.mmt.classes.TermHelper;
-
-
 public class GradesActivity extends ListActivity {
     private static final int ACTIVITY_CREATE	= 0;
     private static final int ACTIVITY_EDIT 		= 1;
 
-    //private static final int INSERT_ID = Menu.FIRST;
     private static final int DELETE_ID = Menu.FIRST;
     private static final int CANCEL_ID = Menu.FIRST + 1;
 
@@ -60,8 +57,7 @@ public class GradesActivity extends ListActivity {
         headImage.setBackgroundResource(R.drawable.grade);
         
         // Get Grades
-        fillData();
-        
+        fillData();        
         registerForContextMenu(getListView());
     }
 
@@ -147,10 +143,9 @@ public class GradesActivity extends ListActivity {
     
     @Override
     public boolean onContextItemSelected(MenuItem item) {
+    	AdapterContextMenuInfo info = (AdapterContextMenuInfo) item.getMenuInfo();    	
         switch(item.getItemId()) {
-            case DELETE_ID:            	
-                AdapterContextMenuInfo info = (AdapterContextMenuInfo) item.getMenuInfo();
-                Log.i("ConMenu","Delete ID: " + info.id);
+            case DELETE_ID:
                 gradeAdapter.deleteNote(info.id);
                 fillData();
                 return true;

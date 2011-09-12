@@ -35,8 +35,7 @@ public class DayoffActivity extends ListActivity {
 	    private static final int ACTIVITY_EDIT 		= 1;
 	    private static final int ACTIVITY_DETAIL	= 2;
 
-	    private static final int INSERT_ID = Menu.FIRST;
-	    private static final int DELETE_ID = Menu.FIRST + 1;
+	    private static final int DELETE_ID = Menu.FIRST;
 
 	    private long totalDays = 0;
 	    
@@ -130,7 +129,7 @@ public class DayoffActivity extends ListActivity {
    
 	    private void gotoHelp() {
 	    	Intent i = new Intent(this, HtmlView.class);
-	        i.putExtra("htmlSite", R.raw.todo_help);
+	        i.putExtra("htmlSite", R.raw.dayoff_help);
 	        startActivity (i);			
 		}
 	    

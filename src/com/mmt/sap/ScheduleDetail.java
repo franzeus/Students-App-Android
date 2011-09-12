@@ -4,37 +4,20 @@ import java.util.HashMap;
 import java.util.Map;
 
 import android.app.Activity;
-import android.app.ListActivity;
-import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.ContextMenu;
-import android.view.LayoutInflater;
 import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewGroup;
-import android.view.ContextMenu.ContextMenuInfo;
 import android.view.View.OnClickListener;
-import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.ListView;
 import android.widget.ScrollView;
-import android.widget.SimpleCursorAdapter;
 import android.widget.TextView;
 import android.widget.Toast;
-import android.widget.AdapterView.AdapterContextMenuInfo;
 
-import com.mmt.classes.GradeListAdapter;
-import com.mmt.classes.GradeDbAdapter;
 import com.mmt.classes.ScheduleDbAdapter;
-import com.mmt.classes.SubjectDbAdapter;
-import com.mmt.classes.TaskListAdapter;
-import com.mmt.classes.TodoDbAdapter;
 
 public class ScheduleDetail extends Activity {
 
@@ -70,9 +53,17 @@ public class ScheduleDetail extends Activity {
         
         scheduleAdapter = new ScheduleDbAdapter(this);
         scheduleAdapter.open();
-		
-        Cursor dataCursor = scheduleAdapter.fetchSubjectsOfDay(dayId);
+		        
+        String dayName = getResources().getStringArray(R.array.schedule_array)[dayId.intValue()];        
+        
+        siteTitle 	= (TextView)findViewById(R.id.subTitle);
+        infoText 	= (TextView)findViewById(R.id.info);
+        headImage 	= (ImageView)findViewById(R.id.titleImg);
+        
+        siteTitle.setText(dayName);
+        headImage.setBackgroundResource(R.drawable.schedule);
 
+        Cursor dataCursor = scheduleAdapter.fetchSubjectsOfDay(dayId);
         Log.i("Schedule", "Count: " + dataCursor.getCount());
         Map<Integer, String> map = new HashMap<Integer, String>();
         while(dataCursor.moveToNext()) {
@@ -113,14 +104,7 @@ public class ScheduleDetail extends Activity {
         }       
         this.setContentView(sv);
 
-        /*
-        
-        siteTitle 	= (TextView)findViewById(R.id.subTitle);
-        infoText 	= (TextView)findViewById(R.id.info);
-        headImage 	= (ImageView)findViewById(R.id.titleImg);
-        
-       
-       
+        /*     
         if (dayId != null) {                       
             int pos = new Integer(dayId.toString());            
 
@@ -139,8 +123,7 @@ public class ScheduleDetail extends Activity {
         	Object id = v.getTag();
         	Toast.makeText(getApplicationContext(), "Toast" + id, Toast.LENGTH_SHORT).show();
         	Integer mp = (Integer)v.getTag();
-        	gotoEdit(mp);
-        	
+        	gotoEdit(mp);        	
         }
     };
     
@@ -231,14 +214,14 @@ public class ScheduleDetail extends Activity {
         }
         return super.onContextItemSelected(item);
     }
-    
+    */
     // ---------------------------------------------------------
 	@Override
 	protected void onActivityResult(int requestCode, int resultCode, Intent intent) {
 		super.onActivityResult(requestCode, resultCode, intent);
-		fillData();
+		//fillData();
 	}
-	  */
+	  
     // Close DatabaseHelper
     @Override    
     protected void onDestroy() {        

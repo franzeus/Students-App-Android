@@ -27,7 +27,7 @@ public class DayoffDbAdapter extends DbAdapter {
 
 	    public DayoffDbAdapter(Context ctx) {
 	    	super(ctx);
-	        //this.mCtx = ctx;
+	        this.mCtx = ctx;
 	    }
 
 	    // -------------------------------------------------------
