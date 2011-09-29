@@ -3,6 +3,7 @@
 		<color name="white">#ffffffff</color>
         <color name="black">#ff000000</color>
         <color name="darkgrey">#ff333333</color>
+        <color name="lightgrey">#fff6f6f6</color>
         
         <color name="one">#ffB5DF9F</color>
         <color name="two">#ffC7E461</color>

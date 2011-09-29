@@ -103,6 +103,7 @@ public class ScheduleCU extends Activity {
         outState.putSerializable("row_id", mRowId);
         outState.putSerializable("day_id", dayId);
     }
+        
     /**/
     @Override
     protected void onPause() {

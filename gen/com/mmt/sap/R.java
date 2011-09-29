@@ -26,16 +26,17 @@ public final class R {
     }
     public static final class color {
         public static final int black=0x7f060001;
-        public static final int button_style=0x7f06000b;
+        public static final int button_style=0x7f06000c;
         public static final int darkgrey=0x7f060002;
-        public static final int def=0x7f060009;
-        public static final int five=0x7f060007;
-        public static final int four=0x7f060006;
-        public static final int inactive=0x7f06000a;
-        public static final int one=0x7f060003;
-        public static final int six=0x7f060008;
-        public static final int three=0x7f060005;
-        public static final int two=0x7f060004;
+        public static final int def=0x7f06000a;
+        public static final int five=0x7f060008;
+        public static final int four=0x7f060007;
+        public static final int inactive=0x7f06000b;
+        public static final int lightgrey=0x7f060003;
+        public static final int one=0x7f060004;
+        public static final int six=0x7f060009;
+        public static final int three=0x7f060006;
+        public static final int two=0x7f060005;
         public static final int white=0x7f060000;
     }
     public static final class drawable {
@@ -171,7 +172,7 @@ public final class R {
         public static final int info=0x7f04000f;
         public static final int jquery144=0x7f040010;
         public static final int jquerymobile=0x7f040011;
-        public static final int jquerymobilemin=0x7f040012;
+        public static final int jquerymobilecss=0x7f040012;
         public static final int schedule_help=0x7f040013;
         public static final int subject_form=0x7f040014;
         public static final int subject_help=0x7f040015;

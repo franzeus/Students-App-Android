@@ -9,12 +9,19 @@ import android.util.Log;
 public class ScheduleDbAdapter extends DbAdapter {
 		
 		private static final String DATABASE_TABLE = "sap_schedule";
+		/*
     	public static final String KEY_ROWID 	= DATABASE_TABLE + "._id";
     	public static final String KEY_DAY		= DATABASE_TABLE + ".day_id";
 	 	public static final String KEY_SUBJECTID= DATABASE_TABLE + ".subject_id";
 	    public static final String KEY_PLACEID 	= DATABASE_TABLE + ".row_id";
 	    public static final String KEY_TERMID 	= DATABASE_TABLE + ".term_id";
-	    
+	    */
+		public static final String KEY_ROWID 	= "_id";
+    	public static final String KEY_DAY		= "day_id";
+	 	public static final String KEY_SUBJECTID= "subject_id";
+	    public static final String KEY_PLACEID 	= "row_id";
+	    public static final String KEY_TERMID 	= "term_id";
+		
 	    // Dynamic columns
 	    public static final String KEY_SUBJECTNAME = "subjectName";
 	    
@@ -26,9 +33,10 @@ public class ScheduleDbAdapter extends DbAdapter {
     
 	    // -------------------------------------------------------
 	    // CREATE
-	    public void create(long subjectId, long dayId, long posId) {
+	    public void create(long subjectId, long dayId, long posId) throws SQLException {
 	    	int termId = getActiveTerm();
-
+	    	
+	    	this.open();
 	    	if(!isPlaceEmpty(dayId, posId, termId)) {
 	    		delete(dayId, posId, termId);
 	    	}
@@ -41,9 +49,7 @@ public class ScheduleDbAdapter extends DbAdapter {
 	        
 	        if(mDb.isOpen())
 	        	mDb.insert(DATABASE_TABLE, null, initialValues);
-	        else
-	        	Log.i("Joo","not open");
-
+	        this.close();
 	    }
 
 	    // DELETE where dayID = ? and placeId = ? and term_id = ?
@@ -55,10 +61,10 @@ public class ScheduleDbAdapter extends DbAdapter {
 	    public Cursor fetchSubjectsOfDay(long dayId) throws SQLException {
 	        Cursor mCursor =
 	            mDb.query(true, DATABASE_TABLE + " LEFT JOIN sap_subjects ON sap_subjects._id = sap_schedule.subject_id",
-	            		new String[] {KEY_ROWID, KEY_SUBJECTID, KEY_PLACEID, KEY_TERMID, "sap_subjects.title AS " + KEY_SUBJECTNAME},
-	            		KEY_DAY + "=" + dayId,
+	            		new String[] {DATABASE_TABLE + "." + KEY_ROWID, DATABASE_TABLE + "." + KEY_SUBJECTID, DATABASE_TABLE + "." + KEY_PLACEID, DATABASE_TABLE + "." + KEY_TERMID, "sap_subjects.title AS " + KEY_SUBJECTNAME},
+	            		DATABASE_TABLE + "." + KEY_DAY + "=" + dayId,
 	            		null,
-	                    null, null, KEY_PLACEID, null);
+	                    null, null, DATABASE_TABLE + "." + KEY_PLACEID, null);
 	        if (mCursor != null) {
 	            mCursor.moveToFirst();
 	        }
@@ -66,19 +72,12 @@ public class ScheduleDbAdapter extends DbAdapter {
 	    }
 	    	    
 	    private boolean isPlaceEmpty(long dayId, long rowId, int termId) {
-	    	if(mDb == null) {
-	    		Log.i("isPlace", "mDb is null!");
-	    		//return true;
-	    	}
-	    	
 	    	Cursor mCursor = mDb.query(true, DATABASE_TABLE, 
 	    							new String[] {KEY_PLACEID, KEY_DAY, KEY_TERMID}, 
 	    							KEY_PLACEID + "=" + rowId + " AND " + KEY_DAY + "=" + dayId + " AND " + KEY_TERMID + "=" + termId, 
 	    							null, null, null, null, null);
-	    	if (mCursor == null) {
-	    		return true;
-	    	}
-	    	return false;    	
+	    	
+	    	return mCursor == null ? true : false;	    	
 	    }
 	
 	    // Get Active Term

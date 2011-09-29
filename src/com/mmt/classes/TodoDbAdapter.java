@@ -6,7 +6,7 @@ package com.mmt.classes;
  * 
  * _DESCRIPTION: 
  * 		This Class defines the basic CRUD operations
- * 		for the sap_grades table (query, create, delete, update)
+ * 		for the sap_todos table (query, create, delete, update)
  * 		 
  */
 import android.content.ContentValues;

@@ -53,16 +53,19 @@ public class ScheduleDetail extends Activity {
         
         scheduleAdapter = new ScheduleDbAdapter(this);
         scheduleAdapter.open();
-		        
+        fillData();
+    }
+	
+    public void fillData() {
         String dayName = getResources().getStringArray(R.array.schedule_array)[dayId.intValue()];        
         
         siteTitle 	= (TextView)findViewById(R.id.subTitle);
         infoText 	= (TextView)findViewById(R.id.info);
         headImage 	= (ImageView)findViewById(R.id.titleImg);
-        
-        siteTitle.setText(dayName);
-        headImage.setBackgroundResource(R.drawable.schedule);
-
+ 
+        //siteTitle.setText(dayName);
+        //headImage.setBackgroundResource(R.drawable.schedule);
+		
         Cursor dataCursor = scheduleAdapter.fetchSubjectsOfDay(dayId);
         Log.i("Schedule", "Count: " + dataCursor.getCount());
         Map<Integer, String> map = new HashMap<Integer, String>();
@@ -70,7 +73,6 @@ public class ScheduleDetail extends Activity {
         	int g = dataCursor.getInt(dataCursor.getColumnIndex("row_id"));
         	String d = dataCursor.getString(dataCursor.getColumnIndex("subjectName"));
         	map.put(dataCursor.getInt(dataCursor.getColumnIndex("row_id")), dataCursor.getString(dataCursor.getColumnIndex("subjectName")));
-        	Log.i("Schedule", "R: " + g + " N: " + d);
         }
         dataCursor.close();
 
@@ -80,25 +82,41 @@ public class ScheduleDetail extends Activity {
         sv.addView(ll);
         
         LinearLayout rowL = null;
+        LinearLayout rowSpace = null;
         TextView subjectTitle = null;
         TextView row = null;
         
         for(int k = 1; k < 11; k++) {
+        	
+        	// Space Row
+        	if((k-1) % 2 == 0) {
+        		rowSpace  = new LinearLayout(this);
+        		rowSpace.setOrientation(LinearLayout.HORIZONTAL);
+        		rowSpace.setMinimumHeight(30);
+        		rowSpace.setBackgroundColor(R.color.white);
+        		ll.addView(rowSpace);
+        	}
+        	        	
             rowL = new LinearLayout(this);
             rowL.setOrientation(LinearLayout.HORIZONTAL);
-            rowL.setMinimumHeight(40);
+            rowL.setMinimumHeight(50);           
             
         	 	row = new TextView(this);
-        	 	row.setText(k + ".");
+        	 	int nr = k;
+        	 	row.setText(nr + ".");
+        	 	row.setTextSize(20.0f);
+        	 	row.setMinWidth(60);
         	 	rowL.addView(row);
         	 	
-        	 	subjectTitle = new TextView(this);        	 	
-        	 	if(map.containsKey(k))
+        	 	subjectTitle = new TextView(this); 
+        	 	subjectTitle.setTextSize(20.0f);
+        	 	if(map.containsKey(k)) {
         	 		subjectTitle.setText(map.get(k).toString());        	 	
-        	 	else
-        	 		subjectTitle.setText("-");        	 	
+        	 	} else {
+        	 		subjectTitle.setText("-");
+        	 	}
         	 	rowL.addView(subjectTitle);
-        	 rowL.setTag(k);       	 
+        	 rowL.setTag(nr);	 
         	 rowL.setOnClickListener(mCorkyListener);
         	 ll.addView(rowL);
         }       
@@ -127,8 +145,7 @@ public class ScheduleDetail extends Activity {
         }
     };
     
-    private void gotoEdit(int rowId) {   
-    	Log.i("gotoEdit","id:" + rowId);
+    private void gotoEdit(int rowId) {
     	Intent i = new Intent(this, ScheduleCU.class);
 	    i.putExtra("dayId", dayId);
 	    i.putExtra("rowId", rowId);
@@ -216,11 +233,12 @@ public class ScheduleDetail extends Activity {
     }
     */
     // ---------------------------------------------------------
-	@Override
-	protected void onActivityResult(int requestCode, int resultCode, Intent intent) {
-		super.onActivityResult(requestCode, resultCode, intent);
-		//fillData();
-	}
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent intent) {
+        super.onActivityResult(requestCode, resultCode, intent);
+        Log.i("BeforeFill", "" + dayId);
+        fillData();
+    }
 	  
     // Close DatabaseHelper
     @Override    
